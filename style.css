@@ -994,8 +994,9 @@ body.modal-open {
   color: var(--pink);
 }
 
+
 /* ========================================
-   SOCIAL ICONS
+   SOCIAL LINKS
 ======================================== */
 
 .social-links {
@@ -1014,6 +1015,8 @@ body.modal-open {
 .social-links a.social-icon {
   --brand-color: #888;
   --flame-color: #ff5a1f;
+  --flame-highlight: #ffd166;
+  --flame-shadow: #ff2d00;
 
   position: relative;
   isolation: isolate;
@@ -1023,18 +1026,23 @@ body.modal-open {
   align-items: center;
   justify-content: center;
 
+  /* Original icon container size */
   width: 52px;
   height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  flex-shrink: 0;
 
-  color: #888;
+  color: var(--brand-color);
   font-size: 34px;
   text-decoration: none;
 
-  transform: none;
-  transition: color 0.25s ease;
+  transition: color 0.3s ease;
 }
 
-/* ICON SIZE */
+/* ========================================
+   ICON LAYER
+======================================== */
 
 .social-links a.social-icon i {
   position: relative;
@@ -1042,151 +1050,100 @@ body.modal-open {
 
   font-size: 34px;
   line-height: 1;
+
+  transition: color 0.3s ease;
 }
 
 /* ========================================
-   BRAND COLORS
+   BRAND FIRE COLORS
 ======================================== */
 
 .social-icon.instagram {
   --brand-color: #e1306c;
   --flame-color: #fd1d1d;
+  --flame-highlight: #fcb045;
+  --flame-shadow: #833ab4;
 }
 
 .social-icon.youtube {
   --brand-color: #ff0033;
   --flame-color: #ff4500;
+  --flame-highlight: #ffcc33;
+  --flame-shadow: #ff0033;
 }
 
 .social-icon.tiktok {
   --brand-color: #ff0050;
   --flame-color: #ff0050;
+  --flame-highlight: #00f2ea;
+  --flame-shadow: #ff0050;
 }
 
 .social-icon.spotify {
   --brand-color: #1ed760;
-  --flame-color: #1ed760;
+  --flame-color: #00c853;
+  --flame-highlight: #b9ff66;
+  --flame-shadow: #1ed760;
 }
 
 .social-icon.github {
   --brand-color: #58a6ff;
-  --flame-color: #58a6ff;
+  --flame-color: #087bff;
+  --flame-highlight: #b8e5ff;
+  --flame-shadow: #58a6ff;
 }
 
 /* ========================================
-   FLAME LAYERS
+   CANVAS FLAME LAYER
+   JavaScript generates the fire
 ======================================== */
 
-/* Flame rising above the icon */
-
-.social-icon::before {
-  content: "";
-
+.social-icon .flame-canvas {
   position: absolute;
-  z-index: 2;
 
   left: 50%;
-  bottom: 24px;
+  bottom: -10px;
 
-  width: 48px;
-  height: 42px;
-
-  pointer-events: none;
-  opacity: 0;
+  width: 90px;
+  height: 120px;
 
   transform: translateX(-50%);
-  transform-origin: bottom center;
 
-  background:
-    radial-gradient(
-      ellipse at 25% 100%,
-      var(--flame-color) 0%,
-      transparent 65%
-    ),
-    radial-gradient(
-      ellipse at 70% 100%,
-      #ffb52e 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse at 50% 100%,
-      #ff5a1f 0%,
-      transparent 70%
-    );
+  z-index: 2;
+  pointer-events: none;
 
-  filter: blur(none);
-  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
 
-/* Flame wrapping around the sides */
+/* Ignite on hover */
 
-.social-icon::after {
-  content: "";
-
-  position: absolute;
-  z-index: 2;
-
-  inset: -7px;
-
-  pointer-events: none;
-  opacity: 0;
-
-  background:
-    radial-gradient(
-      ellipse at 0% 50%,
-      var(--flame-color) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at 100% 50%,
-      #ffb52e 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at 50% 0%,
-      #ff5a1f 0%,
-      transparent 50%
-    );
-
-  filter: blur(none);
-  mix-blend-mode: normal;
+.social-icon:hover .flame-canvas,
+.social-icon .flame-canvas.burning {
+  opacity: 1;
 }
 
 /* ========================================
-   IGNITION
+   HOVER IGNITION
 ======================================== */
 
 .social-icon:hover {
   color: var(--brand-color);
 }
 
-/* Flame above the icon */
-
-.social-icon:hover::before {
-  opacity: 1;
-
-  animation:
-    flame-rise 0.45s ease-in-out infinite alternate;
-}
-
-/* Flame around the sides */
-
-.social-icon:hover::after {
-  opacity: 0.85;
-
-  animation:
-    flame-wrap 0.35s ease-in-out infinite alternate;
-}
-/* ICON COLOR IGNITION */
-
 .social-icon:hover i {
+  color: var(--brand-color);
   animation: icon-ignite 1.2s ease-in-out infinite;
 }
+
+/* ========================================
+   ICON IGNITION ANIMATION
+======================================== */
 
 @keyframes icon-ignite {
   0%,
   100% {
-    color: #ffffff;
+    color: #fff;
   }
 
   50% {
@@ -1195,91 +1152,40 @@ body.modal-open {
 }
 
 /* ========================================
-   FLAME ANIMATIONS
-======================================== */
-
-@keyframes flame-rise {
-  0% {
-    transform:
-      translateX(-50%)
-      scaleY(0.75)
-      scaleX(0.9);
-  }
-
-  100% {
-    transform:
-      translateX(-50%)
-      scaleY(1.2)
-      scaleX(1.15);
-  }
-}
-
-@keyframes flame-wrap {
-  0% {
-    transform: scale(0.9);
-    filter: blur(4px);
-  }
-
-  100% {
-    transform: scale(1.08);
-    filter: blur(7px);
-  }
-}
-
-/* ========================================
-   INSTAGRAM FIRE
-======================================== */
-
-.social-icon.instagram:hover::before {
-  background:
-    radial-gradient(
-      ellipse at 25% 100%,
-      #fcb045 0%,
-      transparent 65%
-    ),
-    radial-gradient(
-      ellipse at 70% 100%,
-      #fd1d1d 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse at 50% 100%,
-      #833ab4 0%,
-      transparent 70%
-    );
-}
-
-/* ========================================
-   TIKTOK FIRE
-======================================== */
-
-.social-icon.tiktok:hover::before {
-  background:
-    radial-gradient(
-      ellipse at 25% 100%,
-      #00f2ea 0%,
-      transparent 65%
-    ),
-    radial-gradient(
-      ellipse at 70% 100%,
-      #ff0050 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse at 50% 100%,
-      #ff0050 0%,
-      transparent 70%
-    );
-}
-
-/* ========================================
    ACCESSIBILITY
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .social-icon:hover::before,
-  .social-icon:hover::after {
+  .social-icon:hover i {
     animation: none;
+  }
+
+  .social-icon .flame-canvas {
+    transition: none;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   Icon size remains unchanged
+======================================== */
+
+@media (max-width: 480px) {
+  .social-links {
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .social-links a.social-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+    font-size: 34px;
+  }
+
+  .social-links a.social-icon i {
+    font-size: 34px;
   }
 }
 
