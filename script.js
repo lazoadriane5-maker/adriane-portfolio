@@ -162,7 +162,7 @@ const projects = {
       "A collection of web development and software projects focused on practical digital solutions, user experience, and turning ideas into working systems.",
     role: "Developer",
     tools: "HTML, CSS, JavaScript",
-    image: "img/car.jpg"
+    image: "img/Digital.png"
   }
 };
 
