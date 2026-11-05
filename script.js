@@ -88,6 +88,7 @@ window.addEventListener("mousemove", (event) => {
 });
 
 
+//projects
 const projects = {
   music: {
     category: "PROJECT / 001 · MUSIC",
@@ -96,7 +97,7 @@ const projects = {
       "A collection of original songs, songwriting, vocal production, and sound experiments. My work explores different sounds and genres, blending emotion with creative production.",
     role: "Singer, Songwriter & Producer",
     tools: "FL Studio, BandLab",
-    image: "assets/images/music.jpg"
+    image: "img/music.jpg"
   },
 
   visuals: {
@@ -106,7 +107,7 @@ const projects = {
       "Creative visual projects that bring ideas to life through graphic design, digital artwork, multimedia, and visual storytelling.",
     role: "Visual Artist & Designer",
     tools: "Photoshop, Canva, Ibis Paint",
-    image: "assets/images/visuals.jpg"
+    image: "img/project.jpg"
   },
 
   technology: {
@@ -116,7 +117,7 @@ const projects = {
       "A collection of web development and software projects focused on practical digital solutions, user experience, and turning ideas into working systems.",
     role: "Developer",
     tools: "HTML, CSS, JavaScript",
-    image: "assets/images/technology.jpg"
+    image: "img/car.jpg"
   }
 };
 
