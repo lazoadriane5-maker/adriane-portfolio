@@ -526,3 +526,57 @@ document
       { passive: true }
     );
   });
+
+  
+/* ========================================
+   CERTIFICATES MODAL
+======================================== */
+
+const certificateModal = document.getElementById("certificate-modal");
+const certificateButton = document.getElementById("certificates-button");
+const certificateClose = document.querySelector(".certificate-close");
+
+function openCertificates() {
+  if (!certificateModal) return;
+
+  certificateModal.classList.add("active");
+  document.body.classList.add("modal-open");
+
+  certificateModal.setAttribute("aria-hidden", "false");
+}
+
+function closeCertificates() {
+  if (!certificateModal) return;
+
+  certificateModal.classList.remove("active");
+  document.body.classList.remove("modal-open");
+
+  certificateModal.setAttribute("aria-hidden", "true");
+}
+
+// Open certificates
+if (certificateButton) {
+  certificateButton.addEventListener("click", openCertificates);
+}
+
+// Close using the X button
+if (certificateClose) {
+  certificateClose.addEventListener("click", closeCertificates);
+}
+
+// Close when clicking outside the modal content
+if (certificateModal) {
+  certificateModal.addEventListener("click", (event) => {
+    if (event.target === certificateModal) {
+      closeCertificates();
+    }
+  });
+}
+
+// Close with Escape
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeCertificates();
+  }
+});
+

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +11,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  />
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
   <link rel="icon" type="image/png" href="./img/favicon.png?v=2">
 </head>
 
 <body>
   <div class="cursor-glow"></div>
 
+  <!-- HEADER -->
   <header class="site-header">
     <a class="logo" href="#index">LAZ<span>/</span>0</a>
 
@@ -42,6 +46,7 @@
   </header>
 
   <main>
+
     <!-- HERO / INDEX -->
     <section class="hero section" id="index">
       <div class="hero-content">
@@ -72,8 +77,12 @@
         </div>
 
         <div class="hero-links reveal">
-          <a href="#dimension" class="text-link">EXPLORE MY DIMENSION <span>↘</span></a>
-          <a href="#projects" class="text-link">PROJECTS <span>↘</span></a>
+          <a href="#dimension" class="text-link">
+            EXPLORE MY DIMENSION <span>↘</span>
+          </a>
+          <a href="#projects" class="text-link">
+            PROJECTS <span>↘</span>
+          </a>
         </div>
       </div>
 
@@ -98,6 +107,7 @@
       </div>
     </section>
 
+
     <!-- ABOUT -->
     <section class="section about-section" id="about">
       <div class="section-heading reveal">
@@ -114,15 +124,31 @@
             >
           </div>
 
-          <a
-            href="documents/Adriane_Lazo_resume.pdf"
-            class="resume-button"S
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            SEE MY RESUME
-            <span>↗</span>
-          </a>
+          <!-- ABOUT ACTIONS -->
+          <div class="about-actions">
+
+            <a
+              href="documents/Adriane_Lazo_resume.pdf"
+              class="resume-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SEE MY RESUME
+              <span>↗</span>
+            </a>
+
+            <button
+              type="button"
+              class="resume-button"
+              id="certificates-button"
+              aria-haspopup="dialog"
+              aria-controls="certificate-modal"
+            >
+              CERTIFICATES
+              <span>↗</span>
+            </button>
+
+          </div>
         </div>
 
         <div class="about-text">
@@ -150,6 +176,7 @@
       </div>
     </section>
 
+
     <!-- MY DIMENSION -->
     <section class="section dimension-section" id="dimension">
       <div class="section-heading reveal">
@@ -158,6 +185,7 @@
       </div>
 
       <div class="dimension-list">
+
         <article class="dimension-item reveal">
           <span class="dimension-number">01</span>
           <div>
@@ -193,126 +221,130 @@
           </div>
           <span class="dimension-symbol">↗</span>
         </article>
+
       </div>
     </section>
 
-   
-<!-- PROJECTS -->
-<section class="section projects-section" id="projects">
-  <div class="section-heading reveal">
-    <p class="eyebrow">03 / SELECTED WORK</p>
-    <h2>Things I've<br><span class="orange">put into the world.</span></h2>
-  </div>
 
-  <div class="projects-grid">
-
-    <!-- PROJECT 001: MUSIC -->
-    <article class="project-card reveal">
-      <div class="project-number">PROJECT / 001</div>
-
-      <div class="project-art project-art-music">
-        <span class="art-word">MUSIC</span>
-        <span class="art-subtitle">SOUND IN MOTION</span>
+    <!-- PROJECTS -->
+    <section class="section projects-section" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 / SELECTED WORK</p>
+        <h2>Things I've<br><span class="orange">put into the world.</span></h2>
       </div>
 
-      <div class="project-info">
-        <div>
-          <h3>Music & Production</h3>
-          <p>Original songs, production, and sound experiments.</p>
+      <div class="projects-grid">
+
+        <!-- PROJECT 001: MUSIC -->
+        <article class="project-card reveal">
+          <div class="project-number">PROJECT / 001</div>
+
+          <div class="project-art project-art-music">
+            <span class="art-word">MUSIC</span>
+            <span class="art-subtitle">SOUND IN MOTION</span>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <h3>Music & Production</h3>
+              <p>Original songs, production, and sound experiments.</p>
+            </div>
+            <span class="project-arrow">↗</span>
+          </div>
+
+          <button class="project-view-btn"
+            onclick="openProject('music')">
+            VIEW PROJECT <span>↗</span>
+          </button>
+        </article>
+
+
+        <!-- PROJECT 002: VISUALS -->
+        <article class="project-card reveal">
+          <div class="project-number">PROJECT / 002</div>
+
+          <div class="project-art project-art-film">
+            <span class="art-word">VISUALS</span>
+            <span class="art-subtitle">FRAMES & STORIES</span>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <h3>Visual Storytelling</h3>
+              <p>Design, multimedia, and creative visual projects.</p>
+            </div>
+            <span class="project-arrow">↗</span>
+          </div>
+
+          <button class="project-view-btn"
+            onclick="openProject('visuals')">
+            VIEW PROJECT <span>↗</span>
+          </button>
+        </article>
+
+
+        <!-- PROJECT 003: TECHNOLOGY -->
+        <article class="project-card reveal">
+          <div class="project-number">PROJECT / 003</div>
+
+          <div class="project-art project-art-tech">
+            <span class="art-word">DIGITAL</span>
+            <span class="art-subtitle">IDEAS INTO SYSTEMS</span>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <h3>Technology</h3>
+              <p>Web projects, software, and digital problem-solving.</p>
+            </div>
+            <span class="project-arrow">↗</span>
+          </div>
+
+          <button class="project-view-btn"
+            onclick="openProject('technology')">
+            VIEW PROJECT <span>↗</span>
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- PROJECT PREVIEW MODAL -->
+    <div class="project-modal" id="project-modal"
+         onclick="closeProjectOutside(event)">
+
+      <div class="project-modal-content">
+
+        <button class="project-modal-close"
+          onclick="closeProject()"
+          aria-label="Close project preview">
+          ✕
+        </button>
+
+        <div class="project-modal-image">
+          <img id="modal-image" src="" alt="Project preview">
         </div>
-        <span class="project-arrow">↗</span>
-      </div>
 
-      <button class="project-view-btn"
-        onclick="openProject('music')">
-        VIEW PROJECT <span>↗</span>
-      </button>
-    </article>
+        <div class="project-modal-info">
+          <p class="eyebrow" id="modal-category"></p>
+          <h2 id="modal-title"></h2>
+          <p id="modal-description"></p>
 
-    <!-- PROJECT 002: VISUALS -->
-    <article class="project-card reveal">
-      <div class="project-number">PROJECT / 002</div>
+          <div class="modal-project-details">
+            <p><span>ROLE</span> <span id="modal-role"></span></p>
+            <p><span>TOOLS</span> <span id="modal-tools"></span></p>
+          </div>
 
-      <div class="project-art project-art-film">
-        <span class="art-word">VISUALS</span>
-        <span class="art-subtitle">FRAMES & STORIES</span>
-      </div>
-
-      <div class="project-info">
-        <div>
-          <h3>Visual Storytelling</h3>
-          <p>Design, multimedia, and creative visual projects.</p>
+          <a href="#contact"
+             class="project-contact-btn"
+             id="modal-contact-btn">
+            LET'S TALK ABOUT THIS PROJECT <span>↗</span>
+          </a>
         </div>
-        <span class="project-arrow">↗</span>
+
       </div>
-
-      <button class="project-view-btn"
-        onclick="openProject('visuals')">
-        VIEW PROJECT <span>↗</span>
-      </button>
-    </article>
-
-    <!-- PROJECT 003: TECHNOLOGY -->
-    <article class="project-card reveal">
-      <div class="project-number">PROJECT / 003</div>
-
-      <div class="project-art project-art-tech">
-        <span class="art-word">DIGITAL</span>
-        <span class="art-subtitle">IDEAS INTO SYSTEMS</span>
-      </div>
-
-      <div class="project-info">
-        <div>
-          <h3>Technology</h3>
-          <p>Web projects, software, and digital problem-solving.</p>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <button class="project-view-btn"
-        onclick="openProject('technology')">
-        VIEW PROJECT <span>↗</span>
-      </button>
-    </article>
-
-  </div>
-</section>
-
-<!-- PROJECT PREVIEW MODAL -->
-<div class="project-modal" id="project-modal"
-     onclick="closeProjectOutside(event)">
-
-  <div class="project-modal-content">
-
-    <button class="project-modal-close"
-      onclick="closeProject()"
-      aria-label="Close project preview">
-      ✕
-    </button>
-
-    <div class="project-modal-image">
-      <img id="modal-image" src="" alt="Project preview">
     </div>
-
-    <div class="project-modal-info">
-      <p class="eyebrow" id="modal-category"></p>
-      <h2 id="modal-title"></h2>
-      <p id="modal-description"></p>
-
-      <div class="modal-project-details">
-        <p><span>ROLE</span> <span id="modal-role"></span></p>
-        <p><span>TOOLS</span> <span id="modal-tools"></span></p>
-      </div>
-
-      <a href="#contact"
-         class="project-contact-btn"
-         id="modal-contact-btn">
-        LET'S TALK ABOUT THIS PROJECT <span>↗</span>
-      </a>
-    </div>
-
-  </div>
-</div>
 
 
     <!-- GALLERY -->
@@ -327,27 +359,34 @@
       </p>
 
       <div class="gallery-grid">
-        <button class="gallery-item gallery-tall reveal" data-image="img/lazo.jpg">
+
+        <button class="gallery-item gallery-tall reveal"
+          data-image="img/lazo.jpg">
           <img src="img/lazo.jpg" alt="Gallery image one">
           <span>IMAGE 001 ↗</span>
         </button>
 
-        <button class="gallery-item reveal" data-image="img/MC_LAAZ.jpg">
+        <button class="gallery-item reveal"
+          data-image="img/MC_LAAZ.jpg">
           <img src="img/MC_LAAZ.jpg" alt="Gallery image two">
           <span>IMAGE 002 ↗</span>
         </button>
 
-        <button class="gallery-item reveal" data-image="img/music.jpg">
+        <button class="gallery-item reveal"
+          data-image="img/music.jpg">
           <img src="img/music.jpg" alt="Gallery image three">
           <span>IMAGE 003 ↗</span>
         </button>
 
-        <button class="gallery-item reveal" data-image="img/project.jpg">
+        <button class="gallery-item reveal"
+          data-image="img/project.jpg">
           <img src="img/project.jpg" alt="Gallery image four">
           <span>IMAGE 004 ↗</span>
         </button>
+
       </div>
     </section>
+
 
     <!-- CONTACT -->
     <section class="section contact-section" id="contact">
@@ -371,6 +410,7 @@
       </a>
 
       <div class="social-links reveal">
+
         <a href="https://www.instagram.com/mc_laz_adriane/"
           class="social-icon instagram"
           target="_blank"
@@ -410,22 +450,96 @@
           aria-label="GitHub">
           <i class="fa-brands fa-github"></i>
         </a>
+
       </div>
     </section>
+
   </main>
 
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <a class="logo" href="#index">LAZ<span>/</span>0</a>
     <p>DESIGNED IN MY OWN DIMENSION.</p>
     <p>© <span id="year"></span> MC_LĀZ</p>
   </footer>
 
-  <!-- Gallery lightbox -->
+
+  <!-- CERTIFICATES MODAL -->
+  <div
+    class="certificate-modal"
+    id="certificate-modal"
+    aria-hidden="true"
+  >
+    <div
+      class="certificate-modal-content"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="certificate-modal-title"
+    >
+
+      <div class="certificate-modal-header">
+        <div>
+          <p class="eyebrow">CREDENTIAL / 001</p>
+          <h2 id="certificate-modal-title">My Certificate</h2>
+        </div>
+
+        <button
+          type="button"
+          class="certificate-close"
+          aria-label="Close certificates"
+        >
+          ×
+        </button>
+      </div>
+
+      <article class="certificate-card">
+
+        <img
+          class="certificate-image"
+          src="img/Cisco Certificate.jfif"
+          alt="Cisco Introduction to Modern AI certificate"
+        >
+
+        <div class="certificate-info">
+          <p class="eyebrow">CERTIFICATION</p>
+
+          <h3>Introduction to Modern AI</h3>
+
+          <p>
+            Completed through Cisco Networking Academy under the
+            DICT-ITU DTC Initiative.
+          </p>
+
+          <div class="certificate-meta">
+            <span>ISSUER: CISCO NETWORKING ACADEMY</span>
+            <span>DATE: NOV 05, 2026</span>
+          </div>
+
+          <a
+            class="certificate-view-link"
+            href="img/Cisco Certificate.jfif"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VIEW ORIGINAL <span>↗</span>
+          </a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+
+
+  <!-- GALLERY LIGHTBOX -->
   <div class="lightbox" aria-hidden="true">
     <button class="lightbox-close" aria-label="Close image">×</button>
     <img src="" alt="Expanded gallery image">
   </div>
 
+
+  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
+
 </body>
 </html>
